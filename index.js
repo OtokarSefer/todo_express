@@ -6,6 +6,7 @@ app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 
 app.get("/", (req, res) => {
+    const tasks = ["Study HTML", "Study CSS", "Study JS", "Study OOP"] 
     res.render("index")
 })
 
