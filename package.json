@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "materialize": "^1.0.0",
+    "materialize-css": "^1.0.0-rc.2"
   }
 }
