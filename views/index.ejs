@@ -1,55 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Compiled and minified CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doto_express</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
-<script src="ejs.js"></script>
-<script>
-  let people = ['geddy', 'neil', 'alex'];
-</script>
-
-  <body>
+<body>
     <div class="container">
-        <!-- Page content goes here-->
         <div class="row">
             <div class="col s12">
-              <div class="card blue-grey darken-1">
+              <div class="card">
                 <div class="card-content">
-                  <span class="card-title">ToDo List</span>
+                  <% if(error !== null ){ %>
+                  <div class="row teal lighten-4">
+                    <div class="col s12">
+                      <p class="center-align"><%= error %></p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <span class="card-title">ToDO List</span>
                   <div class="row">
-                    <form class="col s12" method="post" action="/">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="Task" id="task" type="text" name="task">
-                                <label for="task">Insert task</label>
-                            </div>
+                    <form class="col s12" method="POST" action="/">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input placeholder="Task" id="task" type="Text" name="task" value=""></input>
+                          <label for="textarea1">Insert task</label>
                         </div>
-                        <input class="btn" type="submit" value="Add Task">
+                      </div>
+                      <input type="submit" value="Add task :o" class="btn" hidden>
                     </form>
                   </div>
                 </div>
-              </div class="card-action">
-                <ul class="collection">
-                    <li class="collection-item">Study HTML</li>
-                    <li class="collection-item">Study CSS</li>
-                    <li class="collection-item">Study Js</li>
-                    <li class="collection-item">Study OOP</li>
-                </ul>
+                <div class="card-action">
+                    <ul id="tasks" class="collection">
+                        <% tasks.forEach((task) => { %> 
+                          <li class="collection-item"><%= task.task %>
+                          <a href="delete-task/<%= task.id %>" class="secondary-content"><i class="material-icons">remove :(</i></a>
+                          <a href="update-task/<%= task.id %>" class="secondary-content"><i class="material-icons">edit :o</i></a></li>
+                        <% }) %> 
+                    </ul>
+                    <a href="/delete-all-tasks" type="submit" value="Clear all" class="btn">Clear all >:(</a>
+                </div>
+              </div>
             </div>
           </div>
     </div>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-  </body>
+    <script>
+        
+    </script>
+</body>
 </html>

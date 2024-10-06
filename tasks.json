@@ -1,6 +1,10 @@
-[object Object]
-[object Object]
-[object Object]
-[object Object]
-[object Object]
-[object Object]
+[
+  {
+    "id": 0,
+    "task": "python"
+  },
+  {
+    "id": 1,
+    "task": "javascript"
+  }
+]
